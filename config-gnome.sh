@@ -36,8 +36,13 @@ gsettings set org.gnome.TextEditor show-line-numbers true
 # Gnome dash-to-dock
 #https://micheleg.github.io/dash-to-dock/
 
-sudo dnf install gnome-shell-extension-dash-to-dock
-gnome-shell-extension-tool -e dash-to-dock@micxgx.gmail.com
+#Install dash-to-dock
+cd /tmp
+git clone https://github.com/micheleg/dash-to-dock.git
+make -C dash-to-dock install
+cd ~ 
+
+gnome-shell-extension-prefs -e dash-to-dock@micxgx.gmail.com
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM"
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen true 
